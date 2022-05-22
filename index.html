@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru" id="html" class="timer-mode">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J1DBJKMNGE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-J1DBJKMNGE');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Установите таймер онлайн с сингналом. Таймер на 15 минут! Сколько дней до лета? Установите будильник на нужные минуты и секунды онлайн.">
+    <meta name="keywords" content="Таймер на 15 минут, обратный отсчет, запустить таймер, таймер года, таймер онлайн, будильник онлайн, секундомер онлайн, сколько дней до лета таймер">
+    <meta property="og:title" content="Таймер с сингналом">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://timer.org.kz/">
+    <meta property="og:description" content="Установите таймер с сингналом. На нашем сайте есть будильник, секндомер и таймер. ">
+
+    <link rel="shortcut icon" href="css/images/favicon.png" type="image/png">
+    <!-- styles -->
+    <link type="text/css" rel="stylesheet" href="css/timer.css">
+    <link type="text/css" rel="stylesheet" href="css/holiday.css">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css">
+    <link type="text/css" rel="stylesheet" href="css/styles.css">
+    <link type="text/css" rel="stylesheet" href="css/jquery.timepicker.css">
+    <title>Таймер онлайн с сигналом</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="" class="ref"><img src="css/images/favicon.png" alt="timer logotip" width="50" height="50">
+                <h1 class="logo">Timer</h1>
+            </a>
+        </div>
+        <div class="smallMenu logo">
+            <div class="icons" data-title="Праздники" id="iconHoliday"><img src="css/images/holidayWhite-min.png" alt="Иконка торта" width="50" height="50"></div>
+            <div class="icons" data-title="Будильник" id="iconAlarm"><img src="css/images/alarmClockWhite-min.png" alt="Иконка будильника" width="50" height="50"></div>
+            <div class="icons" data-title="Секундомер" id="iconStopwatch"><img src="css/images/clockWhite-min.png" alt="Иконка секундомера" width="50" height="50"></div>
+            <div class="icons" data-title="Таймер" id="iconTimer"><img src="css/images/timerWhite-min.png" alt="Иконка таймера" width="50" height="50"></div>
+            <div class="icons" data-title="Тема" id="iconTheme"><img src="css/images/theme-min.png" alt="Иконка смены темы" width="48" height="48">
+                <div id='div1' align='center' class="recom">Рекомендуем включить темную тему</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="wrapper">
+
+        <header class="switch-clocks z-depth-1">
+            <a id="alarm1" class="alarm waves-effect">Будильник</a>
+            <a id="stopwatch1" class="stopwatch waves-effect">Секундомер</a>
+            <a id="timer1" class="timer waves-effect">Таймер</a>
+        </header>
+
+        <div class="app">
+
+            <div class="container alarm hidden">
+                <form>
+
+                    <div class="control input-field">
+                        <input id="alarm-input" type="text" class="validate">
+                        <label for="alarm-input">Установить время:</label>
+                    </div>
+
+                    <div class="control switch">
+                        <label>
+                            Off
+                            <input type="checkbox" disabled id="alarm-btn">
+                            <span class="lever"></span>
+                            On
+                        </label>
+                    </div>
+
+                    <div class="control checkbox">
+                        <input type="checkbox" id="alarm-sounds" />
+                        <label for="alarm-sounds">Звук</label>
+                    </div>
+
+                </form>
+
+                <div class="clock z-depth-1 inactive">
+                    <span>12:00pm</span>
+                    <div class="overlay waves-effect"></div>
+                </div>
+            </div>
+
+            <div class="container stopwatch">
+                <form>
+                    <a id="stopwatch-btn-start" class="waves-effect waves-teal btn-flat">Старт</a>
+                    <a id="stopwatch-btn-pause" class="waves-effect waves-teal btn-flat">Пауза</a>
+                    <a id="stopwatch-btn-reset" class="waves-effect waves-teal btn-flat">Сброс</a>
+                </form>
+
+                <div class="clock inactive z-depth-1">
+                    <span>0:00:00.0</span>
+                    <div class="overlay waves-effect" title="добавить круг"></div>
+                </div>
+            </div>
+
+            <div class="container timer hidden">
+                <form>
+                    <div class="control input-field">
+                        <input id="timer-input" type="number">
+                        <label for="timer-input">Минуты</label>
+                    </div>
+
+                    <a class="timer-btn start waves-effect"><i class="mdi-av-play-arrow"></i></a>
+                    <a class="timer-btn pause waves-effect"><i class="mdi-av-pause"></i></a>
+                    <a class="timer-btn reset waves-effect"><i class="mdi-av-replay"></i></a>
+
+                    <div class="control checkbox">
+                        <input type="checkbox" id="timer-sounds" />
+                        <label for="timer-sounds">Звук</label>
+                    </div>
+
+                </form>
+
+                <div class="clock inactive z-depth-1 waves-effect">0:00</div>
+            </div>
+
+
+        </div>
+
+        <div id="times-up-modal" class="modal">
+            <div class="modal-content">
+                <h3>Время вышло!</h3>
+            </div>
+            <div class="modal-footer">
+                <a class="dismiss-alarm-sounds modal-action waves-effect waves-red btn-flat">Отключить будильник</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="round" id="round"></div>
+    <div class="bg">
+        <div id="holidayPos">
+            <h3 class="h2">Введите дату в строку ниже:</h4>
+                <input type="text" name="time" id="time" value="12">
+                <button class="buttons" id="buttonSet">Запустить</button>
+        </div>
+        <!-- Holiday -->
+        <div class="container p">
+            <h3 id="headline">Обратный отсчет до события:</h3>
+            <div id="countdown">
+                <ul>
+                    <li class="table"><span class="textSpan" id="days"></span>Дни</li>
+                    <li class="table"><span class="textSpan" id="hours"></span>Часы</li>
+                    <li class="table"><span class="textSpan" id="minutes"></span>Минуты</li>
+                    <li class="table"><span class="textSpan" id="seconds"></span>Секунды</li>
+                </ul>
+            </div>
+            <div class="message">
+                <div id="content">
+                    <span class="emoji">🥳</span>
+                    <span class="emoji">🎉</span>
+                    <span class="emoji">🎂</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="aboutDiv">
+        <div class="cartoch">
+            <h1 class="tite">Как установить <strong>таймер онлайн с сингналом</strong></h1>
+            <h2 class="about"><strong>Таймер с обратным отсчетом времени. </strong>Что-бы начать пользоваться <strong> таймером онлайн </strong> выберете поле "таймер" или кликните по иконке таймера и нажмите на иконку <span class="ico">&#9658</span>, либо на блок с временем.
+                <p>
+                    <strong>Установите минуты и секунды</strong> через запятую (секунды считаются в процентах), либо выберите нужное вам время. Что-бы услышать звук по окончании времени таймера, нужно поставить галочку <span class="ico">✓</span> напротив
+                    поля "звук". Нажмите на иконку для воспроизведения <span class="ico">&#9658</span>, или <i class="mdi-av-pause ico"></i> для остановки таймера. иконка <i class="mdi-av-replay ico"></i> сбросит время таймера до изначального.</p>
+            </h2>
+        </div>
+        <div class="cartoch">
+            <h1 class="tite">Как использовать <strong>будильник с сигналом</strong></h1>
+            <h2 class="about"><strong>Установите часы и минуты онлайн будильника</strong> в формате a.m / p.m. В установлленное время появится уведумление с звуковым сигналом.
+                <p>
+                    Напоминание: <b>a.m - это время до полудня (утро 00:00-12:00). p.m - это время после полудня (ночь
+            12:00-24:00)</b></p>
+            </h2>
+        </div>
+        <div class="cartoch">
+            <h1 class="tite">Как использовать <strong>секундомер ондайн со звуком</strong></h1>
+            <h2 class="about"><strong>Секундомер с точностью до сотых миллесекунд.</strong>
+                <p>
+                    Иконка <span class="ico">&#9658</span> запускает секундомер, иконка <i class="mdi-av-pause ico"></i> останавливает. По нажатию на блок с временем добавляется новая заметка о круге с временем. Что-бы сбросить значение секундомера до
+                    изначального нажмите иконку
+                    <i class="mdi-av-replay ico"></i>.</p>
+            </h2>
+        </div>
+        <div class="cartoch">
+            <h1 class="tite">О сайте</h1>
+            <h2 class="about">На нашем сайте вы сможете установить будильник, таймер или секундомер. Мы старались сделать всё минималистично и собрать весь функционал на одной странице.
+                <p>Отличительной чертой нашего сайта является гибкость и простота настройки времени таймера.</p>
+                Вы можете задать дату на любое время.
+            </h2>
+        </div>
+    </div>
+    <footer class="footer">
+        <span class="footer_span ">&copy; coronaDino | по всем вопросом общаться в группы</span>
+        <p class="footer_p">
+            <a href="https://vk.com/coronadino"><img src="css/images/icons8-vk-в-круге-50.png" alt="ссылка на вконтакте"></a>
+            <a href="https://t.me/coronodino"><img src="css/images/icons8-телеграмма-app-50.png" alt="ссылка на телеграмм" class="footer_img"></a>
+            <a href="https://www.facebook.com/groups/252598656398997"><img src="css/images/icons8-facebook-50.png" alt="ссылка на фейсбук" class="footer_img"></a>
+        </p>
+    </footer>
+
+    <!-- scripts -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.timepicker.min.js"></script>
+    <script src="js/holiday.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/alarm.js"></script>
+    <script src="js/stopwatch.js"></script>
+    <script src="js/timer.js"></script>
+
+</body>
+
+</html>

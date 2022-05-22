@@ -1,0 +1,331 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.wrapper {
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+.app {
+    width: 300vw;
+    transition: 0.4s;
+}
+
+body {
+    background: url(images/confetti-1637197_1920.jpg) repeat-y center;
+}
+
+
+/*-----------------------
+	Modes
+-----------------------*/
+
+.switch-clocks {
+    margin: 0;
+    transition: background-color 0.4s;
+    cursor: default;
+}
+
+html.alarm-mode .switch-clocks {
+    background-color: #E91E63;
+}
+
+html.alarm-mode header .alarm,
+html.stopwatch-mode header .stopwatch,
+html.timer-mode header .timer {
+    background-color: rgba(255, 255, 255, 0.2);
+    pointer-events: none;
+}
+
+html.stopwatch-mode .switch-clocks {
+    background-color: #607D8B;
+}
+
+html.timer-mode .switch-clocks {
+    background-color: #00ACC1;
+}
+
+.switch-clocks a {
+    color: #fff;
+    padding: 30px 40px;
+}
+
+html.alarm-mode .app {
+    transform: translate(0);
+    -webkit-transform: translate(0);
+}
+
+html.stopwatch-mode .app {
+    transform: translate(-100vw);
+    -webkit-transform: translate(-100vw);
+}
+
+html.timer-mode .app {
+    transform: translate(-200vw);
+    -webkit-transform: translate(-200vw);
+}
+
+
+/*-----------------------
+	Clocks General
+-----------------------*/
+
+.container {
+    position: relative;
+    float: left;
+    width: 100vw;
+    max-width: none;
+    color: red;
+    /* canceling auto styles from materialize.css */
+}
+
+form {
+    width: 100%;
+    height: 85px;
+    padding: 10px;
+    margin: 50px auto;
+    border-radius: 2px;
+}
+
+form a {
+    margin: 0 5px;
+}
+
+.control {
+    display: inline-block;
+    width: 130px;
+    vertical-align: middle;
+}
+
+.input-field {
+    display: inline-block;
+    padding-right: 20px;
+}
+
+.checkbox {
+    padding-left: 20px;
+}
+
+.clock {
+    position: relative;
+    height: 300px;
+    max-width: 700px;
+    width: 100%;
+    display: block;
+    margin: 50px auto;
+    font-size: 150px;
+    color: #0277BD;
+    text-align: center;
+    line-height: 300px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: all 0.4s ease-in, box-shadow 0.2s;
+}
+
+.clock.inactive {
+    color: #9e9e9e;
+}
+
+.clock .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.switch label .lever:after {
+    background-color: #fff;
+}
+
+
+/*-----------------------
+	Alarm
+-----------------------*/
+
+#alarm-input {
+    font-size: 26px;
+    text-align: center;
+}
+
+.switch {
+    display: inline-block;
+}
+
+
+/*-----------------------
+	Stopwatch
+-----------------------*/
+
+.stopwatch form {
+    padding: 0;
+    line-height: 85px;
+}
+
+.stopwatch form a {
+    color: #0059bc;
+    margin-bottom: 0;
+}
+
+.stopwatch .clock {
+    max-width: 800px;
+}
+
+
+/*-----------------------
+	Timer
+-----------------------*/
+
+#timer-input {
+    font-size: 32px;
+    text-align: center;
+}
+
+.timer-btn {
+    font-size: 32px;
+    cursor: pointer;
+}
+
+
+/*-----------------------
+	Modals
+-----------------------*/
+
+.modal {
+    width: 40%;
+}
+
+.dismiss-alarm-sounds {
+    float: none !important;
+}
+
+
+/*-----------------------
+	Responsiveness
+-----------------------*/
+
+@media (max-width: 800px) {
+    .switch-clocks a {
+        padding: 20px;
+    }
+    form {
+        height: auto;
+        padding: 10px;
+        margin: 10px auto;
+    }
+    .checkbox {
+        padding-left: 0;
+        display: none;
+    }
+    .clock {
+        font-size: 60px;
+        height: 180px;
+        line-height: 180px;
+        margin-top: 20px;
+    }
+    .stopwatch form a {
+        padding: 0 1rem;
+    }
+    .modal {
+        width: 80%;
+    }
+}
+
+.aboutDiv {
+    text-align: left;
+}
+
+.about {
+    color: black;
+    font-size: 1.5rem;
+    line-height: normal;
+    margin-top: 5px;
+    margin-bottom: 0;
+    max-width: 70%;
+    margin-left: 15%;
+}
+
+.tite {
+    color: rgb(255, 0, 0);
+    margin-top: 15px;
+    line-height: normal;
+    font-size: 1.9rem;
+    max-width: 70%;
+    margin-left: 15%;
+}
+
+.round {
+    margin-top: -20px;
+    color: red;
+    font-size: 1.8rem;
+}
+
+.lis {
+    color: rgba(255, 0, 0, 0.7);
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+}
+
+.blackTheme {
+    color: rgba(255, 0, 0, 0.7);
+}
+
+.blackBack {
+    background: rgb(39, 39, 39);
+}
+
+
+/* .bg { */
+
+
+/* background: url() repeat-y center; */
+
+
+/* } */
+
+
+/* .container { */
+
+
+/* background: url() repeat-y center; */
+
+
+/* } */
+
+.ico {
+    color: #039be5;
+}
+
+.recom {
+    display: none;
+    position: relative;
+    width: 500px;
+    color: blueviolet;
+    font-family: "NotoSansJP-Medium";
+}
+
+.footer {
+    background-color: rgb(76, 69, 69);
+    height: 150px;
+}
+
+.footer_span {
+    font-size: 1.6em;
+}
+
+.footer_p {
+    margin-top: 30px;
+}
+
+.footer_img {
+    margin-left: 3%;
+}

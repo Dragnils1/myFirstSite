@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: wheat;
+}
+
+.bg {
+    background-color: rgb(76, 69, 69);
+}
+
+.ref {
+    color: rgba(255, 0, 0, 0.7);
+}
+
+.ref:hover {
+    color: #333;
+}
+
+.h2 {
+    color: red;
+}
+
+.logo {
+    display: inline-block;
+}
+
+.icons {
+    display: inline-block;
+    /* Строчно-блочный элемент */
+    position: relative;
+    /* Относительное позиционирование */
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.smallMenu {
+    position: relative;
+    margin-left: 5%;
+    right: 0;
+}
+
+.icons:hover::after {
+    content: attr(data-title);
+    /* Выводим текст */
+    position: absolute;
+    /* Абсолютное позиционирование */
+    left: -20%;
+    top: 90%;
+    /* Положение подсказки */
+    z-index: 1;
+    /* Отображаем подсказку поверх других элементов */
+    background: rgb(0, 172, 193);
+    /* Полупрозрачный цвет фона */
+    font-family: Arial, sans-serif;
+    /* Гарнитура шрифта */
+    font-size: 11px;
+    /* Размер текста подсказки */
+    padding: 5px 10px;
+    /* Поля */
+    /* Параметры рамки */
+    border-radius: 3px;
+    border: 5px solid transparent;
+}
+
+.buttons {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    appearance: none;
+    border: 0;
+    border-radius: 5px;
+    background: rgb(0, 172, 193);
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 16px;
+    margin: 5px;
+}
+
+.buttons:hover {
+    background: #1d49aa;
+}
